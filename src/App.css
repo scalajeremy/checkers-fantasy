@@ -1,33 +1,31 @@
-.App {
-  text-align: center;
+#checker-board {
+  width: 600px;
+  height: 600px;
+  background-color: #ffbc00;
+  border: 10px solid rgba(0,0,0,0.65);
+	border-radius: 10px;
+	position: relative;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.square {
+		width: 75px;
+		height: 75px;
+		float: left;
+	}
+	.dark {
+    background-color: rgba(0,0,0,0.25);
+    background-image: url(./cave_bricks_03.png);
+    background-size: cover;
+   }
+	.light {
+    background-color: rgba(255,255,255,0.25);
+    background-image: url(./cave_bricks_01.png);
+    background-size: cover;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
+	.checker {
+		width: 65px;
+		height: 65px;
+		border-radius: 30px;
+		position: absolute;
+	}
+	.red { background-color: red; }
+	.black { background-color: black; }
