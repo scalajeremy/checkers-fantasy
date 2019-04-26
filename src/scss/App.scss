@@ -48,9 +48,12 @@
     background-size: cover;
     background-position: bottom;
   }
-  .button {
-    background-image: url(../assets/button-nofond.png);
-    background-position: bottom;
-    background-repeat: no-repeat;
 
+  .main-but {
+    margin: auto;
+    padding-top: 300px;
+  }
+
+  #but {
+    max-width: 16rem;
   }
