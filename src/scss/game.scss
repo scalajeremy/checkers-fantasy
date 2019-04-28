@@ -1,11 +1,12 @@
 .main-view {
   height: 100vh;
-  display: flex; /* contexte sur le parent */
+  display: flex;
   background-image: url(../assets/cave_bg.png);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 #checker-board {
   width: 700px;
   height: 700px;
@@ -47,13 +48,4 @@
     background-image: url(../assets/pawn_blue.png);
     background-size: cover;
     background-position: bottom;
-  }
-
-  .main-but {
-    margin: auto;
-    padding-top: 300px;
-  }
-
-  #but {
-    max-width: 16rem;
   }
