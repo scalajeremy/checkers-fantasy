@@ -2,6 +2,7 @@
   "name": "checkers-fantasy",
   "version": "0.1.0",
   "private": true,
+  "keywords": "react, socket.io",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "node-sass": "^4.11.0",
