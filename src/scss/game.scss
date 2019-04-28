@@ -17,10 +17,19 @@
 
 }
 .square {
-		width: 85px;
-		height: 85px;
-		float: left;
+	width: 85px;
+	height: 85px;
+	float: left;
 	}
+
+.square:hover {
+  z-index: 1;
+  transition: transform 0.2s;
+  outline: 1px solid transparent;
+  transform: scale(1.1) rotate(2deg);
+  filter: drop-shadow(7px 7px 2px #111111);
+}
+
 	.dark {
     background-color: rgba(0,0,0,0.25);
     background-image: url(../assets/cave_bricks_dark.png);
@@ -31,11 +40,11 @@
     background-image: url(../assets/cave_bricks_light.png);
     background-size: cover;
   }
-	.checker {
-		width: 85px;
-		height: 85px;
 
-		position: absolute;
+.checker {
+	width: 85px;
+	height: 85px;
+  position: relative;
 	}
 	.red {
     // background-color: red;

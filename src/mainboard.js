@@ -1,115 +1,51 @@
 import React, { Component } from 'react';
 
 export default class Mainboard extends Component {
+
+  constructor(){
+    super();
+
+    this.state = {
+      board: {},
+    }
+
+    const colNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    for(let row = 0; row < 8; row++){
+      for(let col = 0; col < 8; col++){
+        let id = colNames[col] + (row+1);
+        this.state.board[id] = {
+          color: (row+col)%2 ? 'light' : 'dark',
+          id: colNames[col] + (row+1),
+          content: ''
+        };
+      }
+    }
+  }
+
+  componentDidMount(){
+    const reds = ['A1', 'A3', 'B2', 'C1', 'C3', 'D2', 'E1', 'E3', 'F2', 'G1', 'G3', 'H2'];
+    const blues = ['A7', 'B6', 'B8', 'C7', 'D6', 'D8', 'E7', 'F6', 'F8', 'G7', 'H6', 'H8']
+    reds.forEach(pos => this.addPiece(pos, 'red'));
+    blues.forEach(pos => this.addPiece(pos, 'blue'));
+  }
+
+  addPiece(id, color){
+    let newBoard = this.state.board;
+    newBoard[id].content = (<div className={color + " checker"}></div>)
+    this.setState({board: newBoard});
+  }
+
   render() {
     return (
       <div className="main-view">
         <div id="checker-board">
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-      		<div className="light square"></div>
-      		<div className="dark square"></div>
-
-          {/* Blue */}
-          <div className="blue checker" style={{marginLeft:'0px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'170px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'340px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'510px'}} id="blue-checker-1"></div>
-
-          <div className="blue checker" style={{marginLeft:'85px', marginTop: '85px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'255px', marginTop: '85px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'425px', marginTop: '85px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'595px', marginTop: '85px'}} id="blue-checker-1"></div>
-
-          <div className="blue checker" style={{marginLeft:'0px', marginTop: '170px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'170px', marginTop: '170px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'340px', marginTop: '170px'}} id="blue-checker-1"></div>
-          <div className="blue checker" style={{marginLeft:'510px', marginTop: '170px'}} id="blue-checker-1"></div>
-
-          {/* Red */}
-          <div className="red checker" style={{marginLeft:'85px', marginTop: '595px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'255px', marginTop: '595px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'425px', marginTop: '595px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'595px', marginTop: '595px'}} id="red-checker-1"></div>
-
-          <div className="red checker" style={{marginLeft:'0px', marginTop: '510px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'170px', marginTop: '510px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'340px', marginTop: '510px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'510px', marginTop: '510px'}} id="red-checker-1"></div>
-
-          <div className="red checker" style={{marginLeft:'85px', marginTop: '425px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'255px', marginTop: '425px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'425px', marginTop: '425px'}} id="red-checker-1"></div>
-          <div className="red checker" style={{marginLeft:'595px', marginTop: '425px'}} id="red-checker-1"></div>
-
-
+          {Object.keys(this.state.board).map(key => {
+            let square = this.state.board[key];
+            return (
+            <div className={'square ' + square.color} id={square.id} key={square.id}>
+              {square.content}
+            </div>
+          )})}
         </div>
       </div>
     );
