@@ -172,6 +172,14 @@ export default class Mainboard extends Component {
   render() {
     return (
       <div className="main-view">
+        <div className="game-elements">
+          <div className="top-elements">
+              <img src={avatar_red} alt="avatar_red" className="first-pers" />
+              <img src={heartRed} alt ="heartRed" className="heartRed" />
+              <img src={starRed} alt ="starRed" className="starRed" />
+          </div>
+
+        </div>
         <div id="checker-board">
           {Object.keys(this.state.board).map(key => {
             let square = this.state.board[key];
@@ -179,17 +187,10 @@ export default class Mainboard extends Component {
             <div className={'square ' + square.color} id={square.id} key={square.id} onClick={this.handleClick.bind(this)}>
               {square.content}
             </div>
-          )
-        })
-      }
-        </div>
 
-        <div className="hello">
-            <img src={avatar_red} alt="avatar_red" className="first-pers" />
-            <img src={heartRed} alt ="heartRed" className="heartRed" />
-            <img src={starRed} alt ="starRed" className="starRed" />
+          )})}
         </div>
-        <div className="hello">
+        <div className="top-elements">
             <img src={avatar_blue} alt="avatar_blue" className="second-pers" />
             <img src={heart} alt ="heart" className="heart" />
             <img src={star} alt ="star" className="star" />

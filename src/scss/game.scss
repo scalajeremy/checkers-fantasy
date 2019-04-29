@@ -1,23 +1,28 @@
 
-
-.main-view {
+.App {
   height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.main-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #checker-board {
-  width: 700px;
-  height: 700px;
-  margin: auto;
+  height: 43.75rem;
+  width: 43.75rem;
   background-color: #555555;
   border: 10px solid rgba(0,0,0,0.65);
 	border-radius: 10px;
 
 }
 .square {
-	width: 85px;
-	height: 85px;
+	width: 5.313rem;
+	height: 5.313rem;
 	float: left;
 	}
 
@@ -41,8 +46,8 @@
   }
 
 .checker {
-	width: 85px;
-	height: 85px;
+	width: 5.313rem;
+	height: 5.313rem;
   position: relative;
 	}
 	.red {
@@ -58,52 +63,40 @@
     background-position: bottom;
   }
   .first-pers{
-    height: 130px;
+    height: 8.125rem;
     border-radius: 40%;
     transform: rotateY(180deg);
-    position : absolute;
-    left : 0px;
     vertical-align: left;
   }
   .second-pers{
-    height: 130px;
-    border-radius: 40%;
-    position : absolute;
-    margin-top: 560px;
-    left : 0px;
+    height: 8.125rem;
     vertical-align: left;
   }
 
   .heart{
-    height: 70px;
-    position : absolute;
-    margin-top: 620px;
-    left : 100px;
+    height: 4.375rem;
     vertical-align: left;
   }
 
   .star {
-    height: 90px;
-    position : absolute;
-    margin-top: 600px;
-    left : 190px;
+    height:  5.625rem;
     vertical-align: left;
 
   }
   .heartRed{
-    height: 70px;
-    position : absolute;
-    margin-top: 40px;
-    left : 100px;
-    vertical-align: left;
+    height: 4.375rem;
+     vertical-align: left;
   }
 
   .starRed {
-    height: 90px;
-    position : absolute;
-    margin-top: 20px;
-    left : 190px;
+    height:  5.625rem;
     vertical-align: left;
 
   }
 
+  .game-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 43.75rem;
+  }
