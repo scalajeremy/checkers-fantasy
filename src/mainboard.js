@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import GameLogic from './game_logic';
 
 export default class Mainboard extends Component {
 
@@ -8,7 +9,7 @@ export default class Mainboard extends Component {
     this.state = {
       board: {},
     }
-
+    console.log(this.state)
     const colNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     for(let row = 0; row < 8; row++){
       for(let col = 0; col < 8; col++){
