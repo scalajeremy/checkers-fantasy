@@ -9,7 +9,7 @@ export default class Mainboard extends Component {
     this.state = {
       board: {},
     }
-    console.log(this.state)
+    console.log(this.state.board)
     const colNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     for(let row = 0; row < 8; row++){
       for(let col = 0; col < 8; col++){
@@ -25,7 +25,7 @@ export default class Mainboard extends Component {
 
   componentDidMount(){
     const reds = ['A1', 'A3', 'B2', 'C1', 'C3', 'D2', 'E1', 'E3', 'F2', 'G1', 'G3', 'H2'];
-    const blues = ['A7', 'B6', 'B8', 'C7', 'D6', 'D8', 'E7', 'F6', 'F8', 'G7', 'H6', 'H8']
+    const blues = ['A7', 'B6', 'B8', 'C7', 'D6', 'D8', 'E7', 'F6', 'F8', 'G7', 'H6', 'H8'];
     reds.forEach(pos => this.addPiece(pos, 'red'));
     blues.forEach(pos => this.addPiece(pos, 'blue'));
   }
@@ -36,15 +36,17 @@ export default class Mainboard extends Component {
     this.setState({board: newBoard});
   }
 
-  handleClick(e){
-    e.preventDefault();
-     console.log(e.currentTarget.id);
+  handleClick(id){
+    id.preventDefault();
+     let choice = (id.currentTarget.id);
+     console.log(choice);
+     if(this.state.board[choice].content === ''){
+       console.log('je suis vide')
+     }else if(this.state.board[choice].content !== ''){
+       console.log('y a quelqu\'un ici')
+     }
   }
 
-  movePiece(id){
-    let choice = id.currentTarget.id
-    console.log(choice);
-  }
 
   render() {
     return (
@@ -53,7 +55,7 @@ export default class Mainboard extends Component {
           {Object.keys(this.state.board).map(key => {
             let square = this.state.board[key];
             return (
-            <div className={'square ' + square.color} id={square.id} key={square.id} onClick={this.handleClick}>
+            <div className={'square ' + square.color} id={square.id} key={square.id} onClick={this.handleClick.bind(this)}>
               {square.content}
             </div>
           )})}
