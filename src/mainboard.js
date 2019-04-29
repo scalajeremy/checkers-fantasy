@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import avatar_red from './assets/avatar_red.png';
+import avatar_blue from './assets/avatar_blue.png';
+import heart from './assets/heart.png';
+import star from './assets/star.png';
+import heartRed from './assets/heart.png';
+import starRed from './assets/star.png';
 // import GameLogic from './game_logic';
 
 export default class Mainboard extends Component {
@@ -118,12 +123,20 @@ export default class Mainboard extends Component {
         })
       }
 
-          <div className="hello">
-            <img src={avatar_red} alt="avatar_red" className="first-pers" />
-          </div>
+
 
         </div>
 
+        <div className="hello">
+            <img src={avatar_red} alt="avatar_red" className="first-pers" />
+            <img src={heartRed} alt ="heartRed" className="heartRed" />
+            <img src={starRed} alt ="starRed" className="starRed" />
+        </div>
+        <div className="hello">
+            <img src={avatar_blue} alt="avatar_blue" className="second-pers" />
+            <img src={heart} alt ="heart" className="heart" />
+            <img src={star} alt ="star" className="star" />
+        </div>
       </div>
     );
   }
