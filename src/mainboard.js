@@ -36,6 +36,16 @@ export default class Mainboard extends Component {
     this.setState({board: newBoard});
   }
 
+  handleClick(e){
+    e.preventDefault();
+     console.log(e.currentTarget.id);
+  }
+
+  movePiece(id){
+    let choice = id.currentTarget.id
+    console.log(choice);
+  }
+
   render() {
     return (
       <div className="main-view">
@@ -43,7 +53,7 @@ export default class Mainboard extends Component {
           {Object.keys(this.state.board).map(key => {
             let square = this.state.board[key];
             return (
-            <div className={'square ' + square.color} id={square.id} key={square.id}>
+            <div className={'square ' + square.color} id={square.id} key={square.id} onClick={this.handleClick}>
               {square.content}
             </div>
           )})}
