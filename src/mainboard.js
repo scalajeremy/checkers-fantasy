@@ -39,12 +39,19 @@ export default class Mainboard extends Component {
   handleClick(id){
     id.preventDefault();
      let choice = (id.currentTarget.id);
-     console.log(choice);
      if(this.state.board[choice].content === ''){
-       console.log('je suis vide')
+       this.handleEmpty(choice)
      }else if(this.state.board[choice].content !== ''){
-       console.log('y a quelqu\'un ici')
+       this.handleOccupied(choice)
      }
+  }
+
+  handleEmpty(choice){
+    console.log(choice + ' est vide');
+  }
+
+  handleOccupied(choice){
+    console.log('y a quelqu\'un en ' + choice);
   }
 
 
