@@ -15,6 +15,7 @@ export default class Mainboard extends Component {
     this.state = {
       board: {},
       selected: '',
+      legalMove: [],
       colNames: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     }
     const colNames = this.state.colNames;
@@ -58,18 +59,24 @@ export default class Mainboard extends Component {
 
   handleEmpty(choice){
     if(this.state.selected){
-      let selected = this.state.board[this.state.selected];
-      let pieceColor = selected.pieceColor;
-      // this.possibleMove(this.state, choice, pieceColor)
-      this.changePiece(choice, selected.content, pieceColor);
-      this.changePiece(this.state.selected, '', '');
+      if(this.state.legalMove.indexOf(choice) !== -1){
+        let selected = this.state.board[this.state.selected];
+        let pieceColor = selected.pieceColor;
+        this.changePiece(choice, selected.content, pieceColor);
+        this.changePiece(this.state.selected, '', '');
+        this.setState({legalMove: []});
+      }
+      else{
+        console.log('move pas legal')
+      }
     }
   }
 
   async handleOccupied(choice){
     await this.setState({selected: choice});
     let availableMove = this.possibleMove();
-    console.log(availableMove)
+    await this.setState({legalMove: availableMove})
+
   }
 
   possibleMove(){
@@ -78,32 +85,85 @@ export default class Mainboard extends Component {
     let letter = this.state.selected.substring(0,1);
     let column = this.state.colNames.indexOf(letter) +1;
     let row = parseInt(this.state.selected.substring(1));
+    let legalMove = [];
     console.log('column: ' + column + ' ' + 'row ' + row)
+
     if(column === 1){
+      column = this.state.colNames[column];
       if(pieceColor === 'red'){
-        column = this.state.colNames[column];
         row = row + 1;
         let move = column + row
-          if(this.state.board[move].content === ''){
-            return move;
-          }
 
+        if(this.state.board[move].content === ''){
+          legalMove.push(move);
+          return legalMove;
+          }
+      }
+      else{
+        if(pieceColor === 'blue'){
+          row = row - 1;
+          let move = column + row
+
+          if(this.state.board[move].content === ''){
+            legalMove.push(move);
+            return legalMove;
+          }
+        }
       }
     }
     else if (column === 8) {
+      column = this.state.colNames[column-2];
       if(pieceColor === 'red'){
-        column = this.state.colNames[column-2];
         row = row +1;
         let move = column + row;
+
+        if(this.state.board[move].content === ''){
+          legalMove.push(move);
+          return legalMove;
+        }
+      }
+      else{
+        if(pieceColor === 'blue'){
+          row = row -1;
+          let move = column + row;
+
+          if(this.state.board[move].content === ''){
+            legalMove.push(move);
+            return legalMove;
+          }
+        }
       }
     }
     else {
+      let columnLeft = this.state.colNames[column-2];
+      let columnRight = this.state.colNames[column];
       if(pieceColor === 'red'){
-        let columnLeft = this.state.colNames[column-2];
-        let columnRight = this.state.colNames[column];
         row = row +1;
         let moveLeft = columnLeft + row;
         let moveRight = columnRight + row;
+
+        if(this.state.board[moveLeft].content === ''){
+          legalMove.push(moveLeft);
+        }
+        if(this.state.board[moveRight].content === ''){
+          legalMove.push(moveRight);
+        }
+        return legalMove;
+      }
+      else{
+        if(pieceColor === 'blue'){
+          row = row -1;
+          let moveLeft = columnLeft + row;
+          let moveRight = columnRight + row;
+
+          if(this.state.board[moveLeft].content === ''){
+            legalMove.push(moveLeft);
+          }
+          if(this.state.board[moveRight].content === ''){
+            legalMove.push(moveRight);
+          }
+          return legalMove;
+        }
       }
     }
   }
@@ -122,9 +182,6 @@ export default class Mainboard extends Component {
           )
         })
       }
-
-
-
         </div>
 
         <div className="hello">
