@@ -59,5 +59,17 @@
   }
   .first-pers{
     height: 150px;
+    border-radius: 40%;
     transform: rotateY(180deg);
+    position : absolute;
+    left : 0px;
+    vertical-align: left;
+  }
+  .second-pers{
+    height: 150px;
+    border-radius: 40%;
+    position : absolute;
+    margin-top: 560px;
+    left : 0px;
+    vertical-align: left;
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import avatar_red from './assets/avatar_red.png';
+import avatar_blue from './assets/avatar_blue.png';
 // import GameLogic from './game_logic';
 
 export default class Mainboard extends Component {
@@ -69,12 +70,16 @@ export default class Mainboard extends Component {
             
           )})}
 
-          <div className="hello">
-            <img src={avatar_red} alt="avatar_red" className="first-pers" />
-          </div>
+         
          
         </div>
-      
+
+        <div className="hello">
+            <img src={avatar_red} alt="avatar_red" className="first-pers" />
+        </div>
+        <div className="hello">
+            <img src={avatar_blue} alt="avatar_blue" className="second-pers" />
+        </div>
       </div>
     );
   }
