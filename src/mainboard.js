@@ -3,8 +3,6 @@ import avatar_red from './assets/avatar_red.png';
 import avatar_blue from './assets/avatar_blue.png';
 import heart from './assets/heart.png';
 import star from './assets/star.png';
-import heartRed from './assets/heart.png';
-import starRed from './assets/star.png';
 // import GameLogic from './game_logic';
 
 export default class Mainboard extends Component {
