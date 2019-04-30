@@ -21,8 +21,8 @@
 
 }
 .square {
-	width: 5.313rem;
-	height: 5.313rem;
+	width: 12.5%;
+	height: 12.5%;
 	float: left;
 	}
 
@@ -31,7 +31,7 @@
   transition: transform 0.2s;
   outline: 1px solid transparent;
   transform: scale(1.1) rotate(2deg);
-  filter: drop-shadow(7px 7px 2px #111111);
+  filter: drop-shadow(7px 7px 5px #111111);
 }
 
 	.dark {
@@ -46,57 +46,59 @@
   }
 
 .checker {
-	width: 5.313rem;
-	height: 5.313rem;
+	width: 100%;
+	height: 100%;
   position: relative;
 	}
-	.red {
+  
+  .red {
     // background-color: red;
     background-image: url(../assets/pawn_red.png);
     background-size: cover;
     background-position: bottom;
   }
-	.blue {
+  .blue {
     // background-color: blue;
     background-image: url(../assets/pawn_blue.png);
     background-size: cover;
     background-position: bottom;
   }
-  .first-pers{
-    height: 8.125rem;
-    border-radius: 40%;
-    transform: rotateY(180deg);
-    vertical-align: left;
-  }
-  .second-pers{
-    height: 8.125rem;
-    vertical-align: left;
-  }
 
-  .heart{
-    height: 4.375rem;
-    vertical-align: left;
-  }
+.first-pers{
+  height: 8.125rem;
+  border-radius: 40%;
+  transform: rotateY(180deg);
+  vertical-align: left;
+}
+.second-pers{
+  height: 8.125rem;
+  vertical-align: left;
+}
 
-  .star {
-    height:  5.625rem;
-    vertical-align: left;
+.heart{
+  height: 4.375rem;
+  vertical-align: left;
+}
 
-  }
-  .heartRed{
-    height: 4.375rem;
-     vertical-align: left;
-  }
+.star {
+  height:  5.625rem;
+  vertical-align: left;
 
-  .starRed {
-    height:  5.625rem;
-    vertical-align: left;
+}
+.heartRed{
+  height: 4.375rem;
+   vertical-align: left;
+}
 
-  }
+.starRed {
+  height:  5.625rem;
+  vertical-align: left;
 
-  .game-elements {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 43.75rem;
-  }
+}
+
+.game-elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 43.75rem;
+}
