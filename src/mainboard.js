@@ -84,7 +84,6 @@ export default class Mainboard extends Component {
     let column = this.state.colNames.indexOf(letter) +1;
     let row = parseInt(this.state.selected.substring(1));
     let legalMove = [];
-    console.log('column: ' + column + ' ' + 'row ' + row)
 
     let moveUpperLeft = this.state.colNames[column - 2] + (row - 1);
     let moveUpperRight = this.state.colNames[column] + (row - 1);
