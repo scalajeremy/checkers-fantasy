@@ -159,7 +159,7 @@ export default class Mainboard extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid ">
         <div className="row">
           <div className="col-2 align-self-start content-ui" id="perso-left">
               <img src={avatar_red} alt="avatar_red" className="first-pers" />
