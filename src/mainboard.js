@@ -3,7 +3,7 @@ import avatar_red from './assets/avatar_red.png';
 import avatar_blue from './assets/avatar_blue.png';
 import heart from './assets/heart.png';
 import star from './assets/star.png';
-// import GameLogic from './game_logic';
+import tile_sound from './audio/tile.mp3';
 
 export default class Mainboard extends Component {
 
@@ -234,9 +234,7 @@ export default class Mainboard extends Component {
     return (
       <>
       <audio id="audioID">
-        <source src="http://iss240.net/tempfiles/menu-click/1.ogg" type="audio/ogg"/>
-        <source src="http://iss240.net/tempfiles/menu-click/1.mp3" type="audio/mpeg"/>
-      Your browser does not support the audio element.
+        <source src={tile_sound} type="audio/mpeg"/>
       </audio>
       <div className="container-fluid ">
         <div className="row">
