@@ -6,12 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './scss/game.scss';
 import './scss/index.scss';
-import Music from './music';
 
 ReactDOM.render(
   <BrowserRouter>
     <App />
-    <Music />
   </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

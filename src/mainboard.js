@@ -3,7 +3,9 @@ import avatar_red from './assets/avatar_red.png';
 import avatar_blue from './assets/avatar_blue.png';
 import heart from './assets/heart.png';
 import star from './assets/star.png';
-import tile_sound from './audio/tile.mp3';
+import growl01 from './audio/growl01.mp3';
+import growl02 from './audio/growl02.mp3';
+
 
 export default class Mainboard extends Component {
 
@@ -40,9 +42,14 @@ export default class Mainboard extends Component {
     blues.forEach(pos => this.changePiece(pos, <div className="blue checker"></div>, 'blue', false));
   }
 
-  playAudio() {
-    let audio1 = document.getElementById("audioID");
-    audio1.play();
+  playAudio(color) {
+    if (color === 'red') {
+      let growl = document.getElementById("audio_growl01");
+      growl.play();
+    } else {
+      let growl = document.getElementById("audio_growl02");
+      growl.play();
+    }
   }
 
   changePiece(id, content, color, isQueen){
@@ -60,7 +67,8 @@ export default class Mainboard extends Component {
        this.handleEmpty(choice)
      }
      else {
-       this.handleOccupied(choice)
+       this.handleOccupied(choice);
+       this.playAudio(this.state.board[choice].pieceColor);
      }
   }
 
@@ -233,8 +241,11 @@ export default class Mainboard extends Component {
   render() {
     return (
       <>
-      <audio id="audioID">
-        <source src={tile_sound} type="audio/mpeg"/>
+      <audio id="audio_growl01">
+        <source src={growl01} type="audio/mpeg"/>
+      </audio>
+      <audio id="audio_growl02">
+        <source src={growl02} type="audio/mpeg"/>
       </audio>
       <div className="container-fluid ">
         <div className="row">
@@ -248,7 +259,7 @@ export default class Mainboard extends Component {
             {Object.keys(this.state.board).map(key => {
               let square = this.state.board[key];
               return (
-                <div className={`square ${square.color}${square.highlighted ? ' highlighted' : ''}`} id={square.id} key={square.id} onClick={this.handleClick.bind(this)} onMouseEnter={this.playAudio}>{square.content}
+                <div className={`square ${square.color}${square.highlighted ? ' highlighted' : ''}`} id={square.id} key={square.id} onClick={this.handleClick.bind(this)}>{square.content}
               </div>
             )})}
           </div>
