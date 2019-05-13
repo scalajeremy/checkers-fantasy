@@ -5,7 +5,7 @@ import heart from './assets/heart.png';
 import star from './assets/star.png';
 import growl01 from './audio/growl01.mp3';
 import growl02 from './audio/growl02.mp3';
-
+import io from 'socket.io-client';
 
 export default class Mainboard extends Component {
 
@@ -17,7 +17,8 @@ export default class Mainboard extends Component {
       selected: '',
       legalMove: [],
       mandatory: [],
-      colNames: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+      colNames: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+      socket: io.connect('http://localhost:3001')
     }
     const colNames = this.state.colNames;
     for(let row = 0; row < 8; row++){
@@ -81,6 +82,7 @@ export default class Mainboard extends Component {
       }
       let index = this.state.legalMove.indexOf(choice)
       if(index !== -1){
+        this.state.socket.emit('move', this.state.selected + choice);
         let newBoard = {...this.state.board};
         this.state.legalMove.forEach(element => {newBoard[element].highlighted = false});
         this.setState({board: newBoard});
@@ -247,12 +249,12 @@ export default class Mainboard extends Component {
       <audio id="audio_growl02">
         <source src={growl02} type="audio/mpeg"/>
       </audio>
-      <div className="container-fluid ">
-        <div className="row">
-          <div className="col-2 align-self-start content-ui" id="perso-left">
-              <img src={avatar_red} alt="avatar_red" className="first-pers" />
-              <img src={heart} alt ="heart" className="heart" />
-              <img src={star} alt ="star" className="star" />
+      <div className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-2 align-self-start content-ui" id="perso">
+              <div><img src={avatar_red} alt="avatar_red" className="first-pers" /></div>
+              <div className="heart"><img src={heart} alt ="heart" className="heart" /></div>
+              <div className="star"><img src={star} alt ="star" className="star" /></div>
           </div>
         <div className="col align-self-center" id="mainboard">
           <div id="checker-board">
@@ -264,10 +266,10 @@ export default class Mainboard extends Component {
             )})}
           </div>
         </div>
-        <div className="col-2 align-self-end">
-            <img src={avatar_blue} alt="avatar_blue" className="second-pers" />
-            <img src={heart} alt ="heart" className="heart" />
-            <img src={star} alt ="star" className="star" />
+        <div className="col-2 align-self-end content-ui" id="perso">
+            <div><img src={avatar_blue} alt="avatar_blue" className="second-pers" /></div>
+            <div className="heart"><img src={heart} alt ="heart" className="heart" /></div>
+            <div className="star"><img src={star} alt ="star" className="star" /></div>
         </div>
       </div>
     </div>
