@@ -17,7 +17,7 @@ module.exports = function gamelogic(io){
         board[i][j] = '';
       }
     }
-  }io
+  }
 
   function possibleMoves(row, column, color, isQueen) {
 
