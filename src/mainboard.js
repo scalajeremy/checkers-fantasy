@@ -20,8 +20,8 @@ export default class Mainboard extends Component {
       colNames: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
       socket: io.connect('http://localhost:3001'),
       player_red_life : 12,
-      player_blue_life : 12,
       player_red_score : 0,
+      player_blue_life : 12,
       player_blue_score : 0
     }
     const colNames = this.state.colNames;
@@ -115,7 +115,7 @@ export default class Mainboard extends Component {
           let column_destination = this.state.colNames.indexOf(choice.substring(0, 1));
           let piece_captured = this.state.board[(this.state.colNames[(column_origin + column_destination) / 2] + ((row_origin + row_destination) / 2))].pieceColor;
           console.log('couleur: ' + piece_captured);
-          piece_captured(piece_captured);
+          this.playerStats(piece_captured);
 
           this.changePiece((this.state.colNames[(column_origin + column_destination) / 2] + ((row_origin + row_destination) / 2)) , '', '', false);
         }
@@ -129,8 +129,8 @@ export default class Mainboard extends Component {
     }
   }
 
-  piece_captured(piece){
-    if(piece === 'red'){
+  playerStats(piece_captured){
+    if(piece_captured === 'red'){
 
     };
   }
