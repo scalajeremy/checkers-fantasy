@@ -102,12 +102,20 @@
 }
 
 .heart{
-  height: 4.375rem;
+  background-image: url(../assets/heart.png);
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  width: 4.75rem; 
+  height: 4.75rem; 
   vertical-align: left;
 }
 
 .star {
+  background-image: url(../assets/star.png); 
+  background-size: contain;
+  background-repeat: no-repeat; 
   height:  5.625rem;
+  width: 5.625rem;
   vertical-align: left;
 
 }

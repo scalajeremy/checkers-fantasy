@@ -270,8 +270,8 @@ export default class Mainboard extends Component {
         <div className="row justify-content-center">
           <div className="col-2 align-self-start content-ui" id="perso">
               <div><img src={avatar_red} alt="avatar_red" className="first-pers" /></div>
-              <div className="heart">{this.state.player_red_life}<img src={heart} alt ="heart" className="heart" /></div>
-              <div className="star">{this.state.player_red_score}<img src={star} alt ="star" className="star" /></div>
+              <div className="heart">{this.state.player_red_life}</div>
+              <div className="star">{this.state.player_red_score}</div>
           </div>
         <div className="col align-self-center" id="mainboard">
           <div id="checker-board">
@@ -285,8 +285,8 @@ export default class Mainboard extends Component {
         </div>
         <div className="col-2 align-self-end content-ui" id="perso">
             <div><img src={avatar_blue} alt="avatar_blue" className="second-pers" /></div>
-            <div className="heart">{this.state.player_blue_life}<img src={heart} alt ="heart" className="heart" /></div>
-            <div className="star">{this.state.player_blue_score}<img src={star} alt ="star" className="star" /></div>
+            <div className="heart">{this.state.player_blue_life}</div>
+            <div className="star">{this.state.player_blue_score}</div>
         </div>
       </div>
     </div>
