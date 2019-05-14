@@ -84,42 +84,69 @@
     }
 
 // UI
-.content-ui{
-  width: 200px;
+.avatar{
+  height: 8.125rem;
+  border-radius: 40%;
+  transform: rotateY(180deg);
 }
 
-.first-pers{
-  height: 8.125rem;
-  border-radius: 40%;
-  transform: rotateY(180deg);
-  vertical-align: left;
-}
-.second-pers{
-  height: 8.125rem;
-  border-radius: 40%;
-  transform: rotateY(180deg);
-  vertical-align: left;
-}
 
 .heart{
   background-image: url(../assets/heart.png);
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  width: 4.75rem; 
-  height: 4.75rem; 
-  vertical-align: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height:  5.625rem;
+  width: 5.625rem;
+  text-align: center;
+  font-size: 3rem;
 }
 
 .star {
-  background-image: url(../assets/star.png); 
+  background-image: url(../assets/star.png);
   background-size: contain;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
+  background-position: center;
   height:  5.625rem;
   width: 5.625rem;
-  vertical-align: left;
-
+  text-align: center;
+  font-size: 3rem;
 }
 
-#perso{
+.powers-bar{
+  height: 5.1875rem;
+  display: flex;
+  justify-content: center;
+}
+.power-border{
+  width: 5.1875rem;
+  height: 5.1875rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/slot_off.png);
+}
+.power{
+  width: 4rem;
+  height: 4rem;
+  margin-top: 1rem;
+}
+.ui{
+  display: flex;
+  flex-direction: column;
+}
+#blue{
   display:flex;
+  flex-direction: column;
+}
+.pics{
+  display:flex;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+.powers{
+  display:flex;
+}
+
+#red{
+  align-items: flex-end;
 }

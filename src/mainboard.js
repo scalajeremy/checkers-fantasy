@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import avatar_red from './assets/avatar_red.png';
 import avatar_blue from './assets/avatar_blue.png';
-import heart from './assets/heart.png';
-import star from './assets/star.png';
 import growl01 from './audio/growl01.mp3';
 import growl02 from './audio/growl02.mp3';
+import power_fire1 from './assets/power_fire1.png';
+import power_fire2 from './assets/power_fire2.png';
+import power_fire3 from './assets/power_fire3.png';
+import power_ice1 from './assets/power_ice1.png';
+import power_ice2 from './assets/power_ice2.png';
+import power_ice3 from './assets/power_ice3.png';
+
+
 import io from 'socket.io-client';
 
 export default class Mainboard extends Component {
@@ -131,13 +137,13 @@ export default class Mainboard extends Component {
 
   playerStats(piece_captured){
     if(piece_captured === 'red'){
-      this.state.player_red_life -= 1;
-      this.state.player_blue_score += 1;
-    } 
+      this.setState((preState)=> {return {player_red_life : preState.player_red_life - 1}});
+      this.setState((preState)=> {return {player_blue_score : preState.player_blue_score + 1}});
+    }
     else{
-      this.state.player_blue_life -= 1;
-      this.state.player_red_score += 1;
-     } 
+      this.setState((preState)=> {return {player_blue_life : preState.player_blue_life - 1}});
+      this.setState((preState)=> {return {player_red_score : preState.player_red_score + 1}});
+     }
   }
 
 
@@ -266,30 +272,47 @@ export default class Mainboard extends Component {
       <audio id="audio_growl02">
         <source src={growl02} type="audio/mpeg"/>
       </audio>
+
       <div className="container-fluid">
-        <div className="row justify-content-center">
-          <div className="col-2 align-self-start content-ui" id="perso">
-              <div><img src={avatar_red} alt="avatar_red" className="first-pers" /></div>
-              <div className="heart">{this.state.player_red_life}</div>
+        <div className="row">
+          <div className="col align-self-start ui" id="red">
+            <div className="pics">
               <div className="star">{this.state.player_red_score}</div>
+              <div className="heart">{this.state.player_red_life}</div>
+              <img src={avatar_red} alt="avatar_red" className="avatar" />
+            </div>
+            <div className="powers">
+              <div className="power-border"><img src={power_fire1} className="power m-auto"/></div>
+              <div className="power-border"><img src={power_fire2} className="power m-auto"/></div>
+              <div className="power-border"><img src={power_fire3} className="power m-auto"/></div>
+            </div>
           </div>
-        <div className="col align-self-center" id="mainboard">
+          <div className="col align-self-center">
           <div id="checker-board">
             {Object.keys(this.state.board).map(key => {
               let square = this.state.board[key];
               return (
                 <div className={`square ${square.color}${square.highlighted ? ' highlighted' : ''}`} id={square.id} key={square.id} onClick={this.handleClick.bind(this)}>{square.content}
               </div>
-            )})}
+            )}
+          )}
+          </div>
+          </div>
+          <div className="col align-self-end">
+            <div className="pics">
+              <img src={avatar_blue} alt="avatar_red" className="avatar" />
+              <div className="heart">{this.state.player_blue_life}</div>
+              <div className="star">{this.state.player_blue_score}</div>
+            </div>
+            <div className="powers">
+              <div className="power-border"><img src={power_ice1} className="power m-auto"/></div>
+              <div className="power-border"><img src={power_ice2} className="power m-auto"/></div>
+              <div className="power-border"><img src={power_ice3} className="power m-auto"/></div>
+            </div>
           </div>
         </div>
-        <div className="col-2 align-self-end content-ui" id="perso">
-            <div><img src={avatar_blue} alt="avatar_blue" className="second-pers" /></div>
-            <div className="heart">{this.state.player_blue_life}</div>
-            <div className="star">{this.state.player_blue_score}</div>
-        </div>
       </div>
-    </div>
+
     </>
     );
   }
