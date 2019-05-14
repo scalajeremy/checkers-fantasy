@@ -105,11 +105,12 @@ export default class Mainboard extends Component {
         else {
           this.changePiece(choice, selected.content, pieceColor, selected.queen);
         }
-
+        //Capture
         if (Math.abs(row_origin - row_destination) > 1) {
           let column_origin = this.state.colNames.indexOf(this.state.selected.substring(0, 1));
           let column_destination = this.state.colNames.indexOf(choice.substring(0, 1));
-
+          let piece_captured = this.state.board[(this.state.colNames[(column_origin + column_destination) / 2] + ((row_origin + row_destination) / 2))].pieceColor;
+          console.log('couleur: ' + piece_captured);
 
           this.changePiece((this.state.colNames[(column_origin + column_destination) / 2] + ((row_origin + row_destination) / 2)) , '', '', false);
         }
