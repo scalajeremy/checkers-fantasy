@@ -18,7 +18,11 @@ export default class Mainboard extends Component {
       legalMove: [],
       mandatory: [],
       colNames: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
-      socket: io.connect('http://localhost:3001')
+      socket: io.connect('http://localhost:3001'),
+      player_red_life : 12,
+      player_blue_life : 12,
+      player_red_score : 0,
+      player_blue_score : 0
     }
     const colNames = this.state.colNames;
     for(let row = 0; row < 8; row++){
@@ -111,6 +115,7 @@ export default class Mainboard extends Component {
           let column_destination = this.state.colNames.indexOf(choice.substring(0, 1));
           let piece_captured = this.state.board[(this.state.colNames[(column_origin + column_destination) / 2] + ((row_origin + row_destination) / 2))].pieceColor;
           console.log('couleur: ' + piece_captured);
+          piece_captured(piece_captured);
 
           this.changePiece((this.state.colNames[(column_origin + column_destination) / 2] + ((row_origin + row_destination) / 2)) , '', '', false);
         }
@@ -122,6 +127,12 @@ export default class Mainboard extends Component {
         console.log('move pas legal')
 
     }
+  }
+
+  piece_captured(piece){
+    if(piece === 'red'){
+
+    };
   }
 
 
@@ -269,7 +280,7 @@ export default class Mainboard extends Component {
         </div>
         <div className="col-2 align-self-end content-ui" id="perso">
             <div><img src={avatar_blue} alt="avatar_blue" className="second-pers" /></div>
-            <div className="heart"><img src={heart} alt ="heart" className="heart" /></div>
+            <div className="heart">{this.state.player_blue_life}<img src={heart} alt ="heart" className="heart" /></div>
             <div className="star"><img src={star} alt ="star" className="star" /></div>
         </div>
       </div>
