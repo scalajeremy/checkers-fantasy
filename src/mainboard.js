@@ -10,7 +10,7 @@ import power_ice1 from './assets/power_ice1.png';
 import power_ice2 from './assets/power_ice2.png';
 import power_ice3 from './assets/power_ice3.png';
 
-
+import ReactTooltip from 'react-tooltip'
 import io from 'socket.io-client';
 
 export default class Mainboard extends Component {
@@ -266,6 +266,9 @@ export default class Mainboard extends Component {
   render() {
     return (
       <>
+
+      <ReactTooltip />
+
       <audio id="audio_growl01">
         <source src={growl01} type="audio/mpeg"/>
       </audio>
@@ -282,9 +285,9 @@ export default class Mainboard extends Component {
               <img src={avatar_red} alt="avatar_red" className="avatar" />
             </div>
             <div className="powers">
-              <div className="power-border"><img src={power_fire1} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">2</div></div>
-              <div className="power-border"><img src={power_fire2} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">4</div></div>
-              <div className="power-border"><img src={power_fire3} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">6</div></div>
+              <div data-tip="Power Fire 1" className="power-border"><img src={power_fire1} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">2</div></div>
+              <div data-tip="Power Fire 2" className="power-border"><img src={power_fire2} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">4</div></div>
+              <div data-tip="Power Fire 3" className="power-border"><img src={power_fire3} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">6</div></div>
             </div>
           </div>
           <div className="col align-self-center">
@@ -300,12 +303,9 @@ export default class Mainboard extends Component {
           </div>
           <div className="col align-self-end">
             <div className="powers">
-            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-              Plop
-            </button>
-              <div className="power-border"><img src={power_ice1} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">2</div></div>
-              <div className="power-border"><img src={power_ice2} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">4</div></div>
-              <div className="power-border"><img src={power_ice3} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">6</div></div>
+              <div data-tip="Power Ice 1" className="power-border"><img src={power_ice1} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">2</div></div>
+              <div data-tip="Power Ice 2" className="power-border"><img src={power_ice2} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">4</div></div>
+              <div data-tip="Power Ice 3" className="power-border"><img src={power_ice3} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">6</div></div>
             </div>
             <div className="pics mt-3">
               <img src={avatar_blue} alt="avatar_red" className="avatar" />
