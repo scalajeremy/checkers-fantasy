@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
 .App {
   height: 100vh;
   display: flex;
@@ -87,9 +89,13 @@
 .avatar{
   height: 8.125rem;
   border-radius: 40%;
-  transform: rotateY(180deg);
+  transition: transform 0.2s;
 }
 
+.avatar:hover{
+  outline: 1px solid transparent;
+  transform: scale(1.2) rotate(20deg);
+}
 
 .heart{
   background-image: url(../assets/heart.png);
@@ -100,6 +106,14 @@
   width: 5.625rem;
   text-align: center;
   font-size: 3rem;
+  font-family: 'Permanent Marker', cursive;
+  padding-top: 10px;
+  transition: transform 0.2s;
+}
+
+.heart:hover{
+  outline: 1px solid transparent;
+  transform: scale(1.2) rotate(-20deg);
 }
 
 .star {
@@ -111,6 +125,22 @@
   width: 5.625rem;
   text-align: center;
   font-size: 3rem;
+  font-family: 'Permanent Marker', cursive;
+  padding-top: 10px;
+  transition: transform 0.2s;
+}
+
+.star:hover{
+  outline: 1px solid transparent;
+  transform: scale(1.2) rotate(20deg);
+}
+
+.red {
+  text-shadow: -4px 0 #C1453A, 0 4px #C1453A, 4px 0 #C1453A, 0 -4px #C1453A;
+}
+
+.blue {
+  text-shadow: -4px 0 #4D96BF, 0 4px #4D96BF, 4px 0 #4D96BF, 0 -4px #4D96BF;
 }
 
 .powers-bar{
@@ -119,17 +149,54 @@
   justify-content: center;
 }
 .power-border{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  position: relative;
   width: 5.1875rem;
   height: 5.1875rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/slot_off.png);
+  transition: transform 0.2s;
 }
+
+.power-border:hover{
+  outline: 1px solid transparent;
+  transform: scale(1.1) rotate(-2deg);
+  filter: drop-shadow(7px 7px 5px #111111);
+}
+
 .power{
   width: 4rem;
   height: 4rem;
-  margin-top: 1rem;
+  margin-left: 0.5rem !important;
+  margin-top: 0.5rem !important;
 }
+
+.star-power {
+  z-index: 99;
+  height:  2rem;
+  width: 2rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: 'Permanent Marker', cursive;
+  position: absolute;
+  bottom: 0rem;
+	left: 60px;
+  background-image: url(../assets/star.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sp-red {
+  text-shadow: -2px 0 #C1453A, 0 2px #C1453A, 2px 0 #C1453A, 0 -2px #C1453A;
+}
+
+.sp-blue {
+  text-shadow: -2px 0 #4D96BF, 0 2px #4D96BF, 2px 0 #4D96BF, 0 -2px #4D96BF;
+}
+
 .ui{
   display: flex;
   flex-direction: column;
@@ -140,7 +207,6 @@
 }
 .pics{
   display:flex;
-  margin-bottom: 2rem;
   align-items: center;
 }
 .powers{

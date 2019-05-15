@@ -276,15 +276,15 @@ export default class Mainboard extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col align-self-start ui" id="red">
-            <div className="pics">
-              <div className="star">{this.state.player_red_score}</div>
-              <div className="heart">{this.state.player_red_life}</div>
+            <div className="pics mb-3">
+              <div className="star red">{this.state.player_red_score}</div>
+              <div className="heart red">{this.state.player_red_life}</div>
               <img src={avatar_red} alt="avatar_red" className="avatar" />
             </div>
             <div className="powers">
-              <div className="power-border"><img src={power_fire1} className="power m-auto"/></div>
-              <div className="power-border"><img src={power_fire2} className="power m-auto"/></div>
-              <div className="power-border"><img src={power_fire3} className="power m-auto"/></div>
+              <div className="power-border"><img src={power_fire1} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">2</div></div>
+              <div className="power-border"><img src={power_fire2} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">4</div></div>
+              <div className="power-border"><img src={power_fire3} className="power m-auto" alt="power_fire1"/><div className="star-power sp-red">6</div></div>
             </div>
           </div>
           <div className="col align-self-center">
@@ -299,15 +299,18 @@ export default class Mainboard extends Component {
           </div>
           </div>
           <div className="col align-self-end">
-            <div className="pics">
-              <img src={avatar_blue} alt="avatar_red" className="avatar" />
-              <div className="heart">{this.state.player_blue_life}</div>
-              <div className="star">{this.state.player_blue_score}</div>
-            </div>
             <div className="powers">
-              <div className="power-border"><img src={power_ice1} className="power m-auto"/></div>
-              <div className="power-border"><img src={power_ice2} className="power m-auto"/></div>
-              <div className="power-border"><img src={power_ice3} className="power m-auto"/></div>
+            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+              Plop
+            </button>
+              <div className="power-border"><img src={power_ice1} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">2</div></div>
+              <div className="power-border"><img src={power_ice2} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">4</div></div>
+              <div className="power-border"><img src={power_ice3} className="power m-auto" alt="power_ice1"/><div className="star-power sp-blue">6</div></div>
+            </div>
+            <div className="pics mt-3">
+              <img src={avatar_blue} alt="avatar_red" className="avatar" />
+              <div className="heart blue">{this.state.player_blue_life}</div>
+              <div className="star blue">{this.state.player_blue_score}</div>
             </div>
           </div>
         </div>

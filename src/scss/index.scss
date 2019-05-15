@@ -22,17 +22,28 @@ body {
 }
 
 #logo{
-  max-width: 100%;
+  max-width: 85%;
   height: auto;
-  width: auto\9; /* ie8 */
+  transition: transform .8s ease-in-out;
+}
+#logo:hover{
+   transform: rotate(360deg);
 }
 
-.main-button {
-  margin: auto;
-  width: 100%;
-  text-align: center;
-}
-
-#button {
+.button{
   width: 16rem;
+  height: 9rem;
+  background: url(../assets/fight.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 2rem;
+    z-index: 99;
+}
+
+.button:hover{
+  background: url(../assets/fight_hover.png);
+  width: 16rem;
+  height: 9rem;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
