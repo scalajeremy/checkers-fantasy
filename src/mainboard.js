@@ -10,7 +10,7 @@ import power_ice1 from './assets/power_ice1.png';
 import power_ice2 from './assets/power_ice2.png';
 import power_ice3 from './assets/power_ice3.png';
 
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
 import io from 'socket.io-client';
 
 export default class Mainboard extends Component {
@@ -28,10 +28,7 @@ export default class Mainboard extends Component {
       player_red_life : 12,
       player_red_score : 0,
       player_blue_life : 12,
-      player_blue_score : 0,
-      power_ice1 : '',
-      power_ice2 : '',
-      power_ice3 : ''
+      player_blue_score : 0
     }
     const colNames = this.state.colNames;
     for(let row = 0; row < 8; row++){
@@ -74,9 +71,9 @@ export default class Mainboard extends Component {
     this.setState({board: newBoard});
   }
 
-  handleClick(id){
-    id.preventDefault();
-     let choice = (id.currentTarget.id);
+  handleClick(event){
+    event.preventDefault();
+     let choice = (event.currentTarget.id);
      if(this.state.board[choice].content === ''){
        this.handleEmpty(choice)
      }
@@ -159,6 +156,9 @@ export default class Mainboard extends Component {
   }
 
   activePower(){
+    if(this.state.player_blue_score < 2){
+      this.setState({power_ice1 : '', power_ice2 : '', power_ice3 : ''})
+    }
     if(this.state.player_blue_score >= 2){
       this.setState({power_ice1 : 'active'});
     }
@@ -168,6 +168,9 @@ export default class Mainboard extends Component {
     if(this.state.player_blue_score >= 6){
       this.setState({power_ice3 : 'active'});
     }
+    if(this.state.player_red_score < 2){
+      this.setState({power_fire1 : '', power_fire2 : '', power_fire3 : ''})
+    }
     if(this.state.player_red_score >= 2){
       this.setState({power_fire1 : 'active'});
     }
@@ -176,6 +179,16 @@ export default class Mainboard extends Component {
     }
     if(this.state.player_red_score >= 6){
       this.setState({power_fire3 : 'active'});
+    }
+  }
+
+  handlePower(cost, color){
+    console.log(cost, color);
+    if(color === "blue"){
+      this.setState((preState)=>{return {player_blue_score : preState.player_blue_score - cost}});
+    }
+    if(color === "red"){
+      this.setState((preState)=>{return {player_red_score : preState.player_red_score - cost}});
     }
   }
 
@@ -325,12 +338,12 @@ export default class Mainboard extends Component {
               <img src={avatar_red} alt="avatar_red" className="avatar" />
             </div>
             <div className="powers">
-              <div data-tip="Kill one ennemy unit and skip your next turn." className={"power-border " + this.state.power_fire1}><img src={power_fire1} className={"power m-auto " + this.state.power_fire1} alt="power_fire1"/><div className="star-power sp-red">2</div></div>
-              <div data-tip="Kill 2 ennemy units, don't gain stars and skip your next turn." className={"power-border " + this.state.power_fire2}><img src={power_fire2} className={"power m-auto " + this.state.power_fire2} alt="power_fire2"/><div className="star-power sp-red">4</div></div>
-              <div data-tip="Kill all units in one row." className={"power-border " + this.state.power_fire3}><img src={power_fire3} className={"power m-auto " + this.state.power_fire3} alt="power_fire3"/><div className="star-power sp-red">6</div></div>
+              <div data-tip="Kill one ennemy unit and skip your next turn." className={"power-border " + this.state.power_fire1} onClick={() => this.handlePower.bind(this)(2, "red")}><img src={power_fire1} className={"power m-auto " + this.state.power_fire1} alt="power_fire1"/><div className="star-power sp-red">2</div></div>
+              <div data-tip="Kill 2 ennemy units, don't gain stars and skip your next turn." className={"power-border " + this.state.power_fire2} onClick={() => this.handlePower.bind(this)(4, "red")}><img src={power_fire2} className={"power m-auto " + this.state.power_fire2} alt="power_fire2"/><div className="star-power sp-red">4</div></div>
+              <div data-tip="Kill all units in one row." className={"power-border " + this.state.power_fire3} onClick={() => this.handlePower.bind(this)(6, "red")}><img src={power_fire3} className={"power m-auto " + this.state.power_fire3} alt="power_fire3"/><div className="star-power sp-red">6</div></div>
             </div>
           </div>
-          <div className="col align-self-center">
+          <div className="col align-self-center mainboard">
           <div id="checker-board">
             {Object.keys(this.state.board).map(key => {
               let square = this.state.board[key];
@@ -341,14 +354,14 @@ export default class Mainboard extends Component {
           )}
           </div>
           </div>
-          <div className="col align-self-end">
+          <div className="col align-self-end ml-3">
             <div className="powers">
-              <div data-tip="Regenerate a friendly unit and skip your next turn" className={"power-border " + this.state.power_ice1}><img src={power_ice1} className={"power m-auto " + this.state.power_ice1} alt="power_ice1"/><div className="star-power sp-blue">2</div></div>
-              <div data-tip="Freeze a ennemy unit, it cannot move at its next turn." className={"power-border " + this.state.power_ice2}><img src={power_ice2} className={"power m-auto " + this.state.power_ice2} alt="power_ice2"/><div className="star-power sp-blue">4</div></div>
-              <div data-tip="Freeze two ennemy units, they cannot move at theirs next turn. You skip your next turn" className={"power-border " + this.state.power_ice3}><img src={power_ice3} className={"power m-auto " + this.state.power_ice3} alt="power_ice3"/><div className="star-power sp-blue">6</div></div>
+              <div data-tip="Regenerate a friendly unit and skip your next turn" className={"power-border " + this.state.power_ice1} onClick={() => this.handlePower.bind(this)(2, "blue")}><img src={power_ice1} className={"power m-auto " + this.state.power_ice1} alt="power_ice1"/><div className="star-power sp-blue">2</div></div>
+              <div data-tip="Freeze a ennemy unit, it cannot move at its next turn." className={"power-border " + this.state.power_ice2} onClick={() => this.handlePower.bind(this)(4, "blue")}><img src={power_ice2} className={"power m-auto " + this.state.power_ice2} alt="power_ice2"/><div className="star-power sp-blue">4</div></div>
+              <div data-tip="Freeze two ennemy units, they cannot move at theirs next turn. You skip your next turn" className={"power-border " + this.state.power_ice3} onClick={() => this.handlePower.bind(this)(6, "blue")}><img src={power_ice3} className={"power m-auto " + this.state.power_ice3} alt="power_ice3"/><div className="star-power sp-blue">6</div></div>
             </div>
             <div className="pics mt-3">
-              <img src={avatar_blue} alt="avatar_red" className="avatar" />
+              <img src={avatar_blue} alt="avatar_blue" className="avatar" />
               <div className="heart blue-shadow">{this.state.player_blue_life}</div>
               <div className="star blue-shadow">{this.state.player_blue_score}</div>
             </div>
