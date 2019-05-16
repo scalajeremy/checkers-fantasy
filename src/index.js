@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './scss/game.scss';
 import './scss/index.scss';
+import './scss/anim.scss';
 
 ReactDOM.render(
   <BrowserRouter>

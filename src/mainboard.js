@@ -280,8 +280,8 @@ export default class Mainboard extends Component {
         <div className="row">
           <div className="col align-self-start ui" id="red">
             <div className="pics mb-3">
-              <div className="star red">{this.state.player_red_score}</div>
-              <div className="heart red">{this.state.player_red_life}</div>
+              <div className="star red-shadow">{this.state.player_red_score}</div>
+              <div className="heart red-shadow">{this.state.player_red_life}</div>
               <img src={avatar_red} alt="avatar_red" className="avatar" />
             </div>
             <div className="powers">
@@ -309,8 +309,8 @@ export default class Mainboard extends Component {
             </div>
             <div className="pics mt-3">
               <img src={avatar_blue} alt="avatar_red" className="avatar" />
-              <div className="heart blue">{this.state.player_blue_life}</div>
-              <div className="star blue">{this.state.player_blue_score}</div>
+              <div className="heart blue-shadow">{this.state.player_blue_life}</div>
+              <div className="star blue-shadow">{this.state.player_blue_score}</div>
             </div>
           </div>
         </div>

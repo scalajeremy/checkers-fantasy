@@ -57,33 +57,7 @@
       height: 12.5%;
       }
 
-// Pawns
-.checker {
-	width: 100%;
-	height: 100%;
-  position: relative;
-	}
-    .red {
-      background-image: url(../assets/pawn_red.png);
-      background-size: cover;
-      background-position: bottom;
-    }
-    .blue {
-      background-image: url(../assets/pawn_blue.png);
-      background-size: cover;
-      background-position: bottom;
-    }
 
-    .red-queen {
-      background-image: url(../assets/pawn_red_queen.png);
-      background-size: cover;
-      background-position: bottom;
-    }
-    .blue-queen {
-      background-image: url(../assets/pawn_blue_queen.png);
-      background-size: cover;
-      background-position: bottom;
-    }
 
 // UI
 .avatar{
@@ -135,11 +109,11 @@
   transform: scale(1.2) rotate(20deg);
 }
 
-.red {
+.red-shadow {
   text-shadow: -4px 0 #C1453A, 0 4px #C1453A, 4px 0 #C1453A, 0 -4px #C1453A;
 }
 
-.blue {
+.blue-shadow {
   text-shadow: -4px 0 #4D96BF, 0 4px #4D96BF, 4px 0 #4D96BF, 0 -4px #4D96BF;
 }
 

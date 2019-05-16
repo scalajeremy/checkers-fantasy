@@ -1,0 +1,57 @@
+/* Iddle */
+
+// Pawns
+.checker {
+	width: 100%;
+	height: 100%;
+  position: relative;
+  animation: iddle 3s infinite linear alternate;
+	}
+
+@keyframes iddle {
+  0% {transform: scale(0.9);}
+  50% {transform: scale(1.1) rotate(2deg);}
+  100% {transform: scale(0.9);}
+}
+
+.dark:nth-child(6n+1) .checker { animation-delay: 100ms; }
+.dark:nth-child(6n+3) .checker { animation-delay: 400ms; }
+.dark:nth-child(6n+5) .checker { animation-delay: 800ms; }
+
+.moveLowerLeft {
+  animation: moveLowerLeft 1s linear;
+}
+
+@keyframes moveLowerLeft {
+  from {
+    top: 0%;
+    left: 0%;
+  }
+  to {
+    top: 100%;
+    left: -100%;
+  }
+}
+
+
+.red {
+  background-image: url(../assets/pawn_red.png);
+  background-size: cover;
+  background-position: bottom;
+}
+.blue {
+  background-image: url(../assets/pawn_blue.png);
+  background-size: cover;
+  background-position: bottom;
+}
+
+.red-queen {
+  background-image: url(../assets/pawn_red_queen.png);
+  background-size: cover;
+  background-position: bottom;
+}
+.blue-queen {
+  background-image: url(../assets/pawn_blue_queen.png);
+  background-size: cover;
+  background-position: bottom;
+}
