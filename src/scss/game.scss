@@ -132,6 +132,7 @@
   background-repeat: no-repeat;
   background-image: url(../assets/slot_off.png);
   transition: transform 0.2s;
+  pointer-events:none;
 }
 
 .power-border:hover{
@@ -145,6 +146,7 @@
   background-repeat: no-repeat;
   background-image: url(../assets/slot_on.png);
   filter: grayscale(0) !important;
+  pointer-events: all;
 }
 
 .power{
