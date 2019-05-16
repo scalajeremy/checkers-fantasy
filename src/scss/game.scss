@@ -140,11 +140,19 @@
   filter: drop-shadow(7px 7px 5px #111111);
 }
 
+.active{
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/slot_on.png);
+  filter: grayscale(0) !important;
+}
+
 .power{
   width: 4rem;
   height: 4rem;
   margin-left: 0.5rem !important;
   margin-top: 0.5rem !important;
+  filter: grayscale(1);
 }
 
 .star-power {

@@ -20,16 +20,17 @@
 
 .moveLowerLeft {
   animation: moveLowerLeft 1s linear;
+  animation-delay: 0s;
 }
 
 @keyframes moveLowerLeft {
   from {
-    top: 0%;
-    left: 0%;
+    top: -100%;
+    left: 100%;
   }
   to {
-    top: 100%;
-    left: -100%;
+    top: 0%;
+    left: 0%;
   }
 }
 
