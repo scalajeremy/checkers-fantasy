@@ -4,15 +4,31 @@
 
 Using [Node.js](https://nodejs.org/uk/), [Socket.io](https://socket.io/).
 
+It's checkers with a fantasy theme and some powerfull power you can activate to annihilate your foes.
+
 ## How to
 ### Prep the environnement
 
 1. Clone the repo
 2. Run `npm install`
+3. Run `node src/server`
 
-### How to play, but for now you just can check progress
+### How to play
 
 [Check progress on Heroku](https://checkers-fantasy.herokuapp.com/)
+
+## What's working and what ain't?
+
+* All front element working nicely.
+* Nothing is up server-side.
+* You can play alone against yourself.
+* You can play even if it's not suppose to be your turn.
+* Power does nothing.
+
+
+## What's next?
+
+I'll do the server-side logic in a few weeks. And I'll add the powers.
 
 
 ## Team
