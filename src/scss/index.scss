@@ -24,10 +24,10 @@ body {
 #logo{
   max-width: 85%;
   height: auto;
-  transition: transform .8s ease-in-out;
+  transition: transform .2s linear;
 }
 #logo:hover{
-   transform: rotate(360deg);
+   transform: scale(0.9);
 }
 
 .button{
