@@ -3,13 +3,12 @@ import {Link} from 'react-router-dom';
 import logo from './assets/logo.png';
 
 export default class Homepage extends Component {
+
+
   render() {
     return(
       <div className="main-view-home">
         <img src={logo} id="logo" alt="logo"/>
-        <form>
-          <input class="form-control form-control-lg" type="text" placeholder="Enter the ID of your room"/>
-        </form>
         <Link to="/play"><div className="button"></div></Link>
       </div>
     );
