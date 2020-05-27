@@ -15,7 +15,7 @@ It's checkers with a fantasy theme and some powerfull power you can activate to 
 
 ### How to play
 
-[Check progress on Heroku](https://checkers-fantasy.herokuapp.com/)
+[Check progress on Heroku](https://checkers-fantasy.herokuapp.com/) (may take a while to load)
 
 ## What's working and what ain't?
 
